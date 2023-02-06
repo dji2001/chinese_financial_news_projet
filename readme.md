@@ -378,7 +378,12 @@ data source: https://figshare.com/articles/dataset/Chinese_Financial_News_Data/1
    4. perhaps numbers could be eliminated to improve performancce
    5. detailed analysis on the content of the articles themselves should be conducted, but beyond the scope of the project
 
-7. other notes:
+7. visualizations
+   ![My Image](src/fig_k=3.png)
+   ![My Image](src/fig_k=5.png)
+   ![My Image](src/fig_k=7.png)
+   ![My Image](src/fig_k=9.png)
+8. other notes:
    Don't forget to check the visualized pngs.
 
 
