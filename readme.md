@@ -51,7 +51,7 @@ data source: https://figshare.com/articles/dataset/Chinese_Financial_News_Data/1
 
 3. Code organization and implementation specifics
 
-3A. TFIDF.py:
+3A. TFIDF.py:(Term_frequency/Inverse_Document_Frequency)
     take segmented texts from article/segmented.txt and run TF-IDF calculation
     IDF is calculated based on all 18959 arcticles, 
     TF-IDF score is only calculated  within sample size (manually set as 4000)
@@ -67,7 +67,6 @@ data source: https://figshare.com/articles/dataset/Chinese_Financial_News_Data/1
     outputs:
     IDF.csv and TFIDF.csv outputed and saved in src directory, 
     didn't upload TFIDF.csv, that is too HUGE, about 300mb 
-    feature is every unique words in the entire data, I didn't calculate as PCA_decomposition will be ran
     NOTE: change encoding to utf8 bom beforing checking it out, if you are intersted.
 
 3B. KmeansPP.py:
@@ -76,7 +75,9 @@ data source: https://figshare.com/articles/dataset/Chinese_Financial_News_Data/1
     
     2. just regular Kmeans++ algorithm with cosine distance, I choose 100 as max-iteration time
        for performance, but they all converge before reaching that limit
-    
+
+       Cosine Distance= A*B / ||A||*||B||
+   
     2. I added topic_extract to extract significant topics within each group, calculated by
         simply add all TFIDF score of all articles with in one group up and multiply
         and sort them, print the 8 most significant words, this could be improved,
