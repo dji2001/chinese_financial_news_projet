@@ -1,5 +1,6 @@
 Project : Chinese financial news Kmeans++ clustering based on TFIDF vectorization
 data source: https://figshare.com/articles/dataset/Chinese_Financial_News_Data/12666233
+Link to presentation:https://drive.google.com/file/d/1qzwXFYQspyWL9Rb_2JlOJLcx9R46z7Vv/view?usp=sharing
 
 1. Required library and instruction to run:
     Zhon: for Chinese punctuation
