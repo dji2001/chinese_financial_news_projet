@@ -379,9 +379,14 @@ data source: https://figshare.com/articles/dataset/Chinese_Financial_News_Data/1
    5. detailed analysis on the content of the articles themselves should be conducted, but beyond the scope of the project
 
 7. visualizations
+
+   1. k=3
    ![My Image](src/fig_k=3.png)
+   2. k=5
    ![My Image](src/fig_k=5.png)
+   3. k=7
    ![My Image](src/fig_k=7.png)
+   4. k=9
    ![My Image](src/fig_k=9.png)
 8. other notes:
    Don't forget to check the visualized pngs.
