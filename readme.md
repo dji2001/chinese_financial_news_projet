@@ -77,6 +77,8 @@ data source: https://figshare.com/articles/dataset/Chinese_Financial_News_Data/1
        for performance, but they all converge before reaching that limit
 
        Cosine Distance= A*B / ||A||*||B||
+       Kmeans++: improved version of Kmeans, select one centroid and iterate thru other point to select other
+                 centroids based on distance
    
     2. I added topic_extract to extract significant topics within each group, calculated by
         simply add all TFIDF score of all articles with in one group up and multiply
