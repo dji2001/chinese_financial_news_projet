@@ -388,8 +388,7 @@ data source: https://figshare.com/articles/dataset/Chinese_Financial_News_Data/1
    ![My Image](src/fig_k=7.png)
    4. k=9
    ![My Image](src/fig_k=9.png)
-8. other notes:
-   Don't forget to check the visualized pngs.
+
 
 
 
