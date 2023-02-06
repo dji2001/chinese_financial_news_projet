@@ -7,8 +7,7 @@ from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 from statistics import mean
 from matplotlib.pylab import mpl
-import pathlib
-import csv
+
 
 
 
@@ -243,13 +242,12 @@ class Visulization(object):
         ax1.set_title(self.title)
         plt.xlabel("PC1")
         plt.ylabel("PC2")
-        arr=self.df_new.to_numpy()
-        plt.scatter(arr[:, 0], arr[:, 1], marker='o', c=arr[:,2], cmap='jet')
-        figtext=""
-        for text in self.topics:
-            figtext=figtext+text+"\n"
-
-        plt.figtext(0.5, 0.01, figtext, ha="center", fontsize=6, bbox={"facecolor":"orange", "alpha":0.5, "pad":5})
+        for i in range(self.len):
+            df=self.df_new.loc[self.df_new['clusters_db'] == i]
+            arr=df.to_numpy()
+            ax1.plot(arr[:, 0], arr[:, 1], marker='o',linestyle='',label=self.topics[i])
+        ax1.legend()
+        
 
         
 
@@ -260,10 +258,18 @@ class Visulization(object):
         plt.savefig(f'fig_k={self.len}.png')
     
     def save(self):
+        simple=open(f"topics_only_k={str(self.len)}.txt",'w',encoding="utf8")
+        for i in range(self.len):
+            simple.write(self.topics[i]+"\n")
+            simple.write(f"len={len(self.clusters_files[i])} \n")
+            simple.write("\n")
+        simple.close()
+
         write_topic=open(f"topics_simple_k={str(self.len)}.txt",'w',encoding="utf8")
         write_topic.write("topics for each Cosine cluster are: \n")
         for i in range(self.len):
             write_topic.write(self.topics[i]+"\n")
+            write_topic.write(f"len={len(self.clusters_files[i])} \n")
             for j in range(20):
                 write_topic.write(self.clusters_files[i][j])
                 write_topic.write("\n")
@@ -271,7 +277,7 @@ class Visulization(object):
         write_topic.close()
 
 
-        cluster_topic=open(f"topics_comprehensive_l={str(self.len)}.txt",'w',encoding="utf8")
+        cluster_topic=open(f"topics_comprehensive_k={str(self.len)}.txt",'w',encoding="utf8")
         for i in range(self.len):
             
             cluster_topic.write(self.topics[i]+"\n")
@@ -310,7 +316,7 @@ def driver(data,k,file_names):
     Cos_pca.PCA_print()
     
 
-def main():
+def main(k_vals):
     print("reading TFIDF.csv, this is very slow")
     data=pd.read_csv("TFIDF.csv")
     data.rename( columns={'Unnamed: 0':'doc_name'}, inplace=True )
@@ -319,11 +325,11 @@ def main():
     data.drop(columns=["doc_name","Unnamed: 1"], inplace=True)
     data= data.to_dict("records")
 
-    for k in [2,3,5,8,10]:
+    for k in k_vals:
         driver(data,k,file_names)
 
 
-main()
+main([3,5,7,9])
 
 
   

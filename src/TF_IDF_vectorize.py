@@ -125,14 +125,14 @@ class Tf_Idf(object):
     
 
 
-def driver(sample_num):
-    TFIDF=Tf_Idf("article","segmented.txt",sample_num)
+def driver(dir_name,file_name,sample_num):
+    TFIDF=Tf_Idf(dir_name,file_name,sample_num)
     TFIDF.reading_file()
     TFIDF.get_idf()
     TFIDF.get_TFIDF()
     TFIDF.write_idf()
     TFIDF.write_TFIDF()
 
-driver(2000)
+driver("article","segmented.txt",2000)
 
 
