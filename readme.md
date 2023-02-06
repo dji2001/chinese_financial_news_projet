@@ -67,6 +67,7 @@ data source: https://figshare.com/articles/dataset/Chinese_Financial_News_Data/1
     outputs:
     IDF.csv and TFIDF.csv outputed and saved in src directory, 
     didn't upload TFIDF.csv, that is too HUGE, about 300mb 
+    feature is every unique words in the entire data, I didn't calculate as PCA_decomposition will be ran
     NOTE: change encoding to utf8 bom beforing checking it out, if you are intersted.
 
 3B. KmeansPP.py:
